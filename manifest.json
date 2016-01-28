@@ -3,13 +3,8 @@
     "description": "redirect to service from http://www.nicozon.net",
     "version": "1.0",
     "minimum_chrome_version": "16.0.884",
-    "permissions": ["downloads", "<all_urls>", "http://www.nicovideo.jp/*", "http://www.nicozon.net/*", "http://ext.nicovideo.jp/thumb_watch/*"],
-    "content_scripts": [
-        {
-            "matches": ["http://www.nicovideo.jp/watch/*"],
-            "js": ["jquery-2.1.4.min.js", "jquery.fileDownload.js", "add_button.js"],
-            "run_at": "document_end"
-        }
-    ],
+    "permissions": ["downloads", "<all_urls>"],
+    "content_security_policy": "script-src 'self' https://ext.nicovideo.jp; object-src 'self'",
+    "browser_action": {"default_popup": "popup.html"},
     "manifest_version": 2
 }
